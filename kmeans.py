@@ -1,5 +1,6 @@
 from node import Node
 from cluster import Cluster
+from dataloader import DataLoader
 import random
 import time
 import matplotlib.pyplot as plt
@@ -28,8 +29,8 @@ class KMeans:
 
     def init_nodes_from_file(self, file_path: str):
         """Initializes nodes from csv file"""
-        # TODO: Implement loading from file.
-        return None
+        for point in DataLoader(file_path).data:
+            self.nodes.append(Node(point[0], point[1]))
 
     def init_random_nodes(self, n_nodes=1000):
         """Initializes nodes with random coordinates"""
