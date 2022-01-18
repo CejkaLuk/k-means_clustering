@@ -73,15 +73,16 @@ class KMeans:
         self.plot_nodes()
         self.plot_centroids()
 
-        # Update assignment of nodes to clusters
-        self.update_clusters()
-
         # Shrink current graph axis by 20%
         box = self.ax.get_position()
         self.ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
 
         # Perform K-Means
         while sum([cluster.centroid.diff_to_last_pos for cluster in self.clusters]) > 0:
+            self.fig.canvas.draw()
+            self.fig.canvas.flush_events()
+            time.sleep(0.5)
+
             # Clear plot
             self.ax.clear()
 
@@ -96,10 +97,9 @@ class KMeans:
             self.ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
             # Plot new data
-            self.fig.canvas.draw()
-            self.fig.canvas.flush_events()
+            # self.fig.canvas.draw()
+            # self.fig.canvas.flush_events()
 
-            time.sleep(0.5)
             total_centroid_movement = sum([cluster.centroid.diff_to_last_pos for cluster in self.clusters])
             print(f'Total movement of all centroids from last iteration [units]: {total_centroid_movement}')
 

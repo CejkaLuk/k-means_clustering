@@ -6,7 +6,7 @@ class Node:
 
     def __init__(self, x: float, y: float):
         self.pos = Position(x, y)
-        self.diff_to_last_pos = None
+        self.diff_to_last_pos = float('inf')
 
     def print(self):
         self.pos.print()
