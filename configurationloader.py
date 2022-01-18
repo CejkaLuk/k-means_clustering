@@ -12,7 +12,8 @@ def load_config_from_file(file_path, config_name) -> dict:
     cfg.read(file_path)
 
     try:
-        return {"n_clusters": cfg.getint(config_name, 'NumberOfClusters'),
+        return {"dataset_name": cfg.get(config_name, 'DatasetName'),
+                "n_clusters": cfg.getint(config_name, 'NumberOfClusters'),
                 "data_file_path": cfg.get(config_name, 'DatasetFilePath')}
     except configparser.NoSectionError:
         raise ValueError(f'\nConfig "{config_name}" not found in configuration file!\n'
