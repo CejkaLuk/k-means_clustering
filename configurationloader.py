@@ -12,16 +12,11 @@ def load_config_from_file(file_path, config_name) -> dict:
     cfg.read(file_path)
 
     try:
-        config = {"n_clusters": cfg.getint(config_name, 'NumberOfClusters'),
-                  "data_file_path": cfg.get(config_name, 'DatasetFilePath')}
-    except:
-        warn(f'\nConfig "{config_name}" not found in configuration file!\n')
-        print(f' Resorting to "DEFAULT" configuration.\n'
-              f' Other configuration names are: "DEFAULT", "CALIFORNIA"')
-        config = {"n_clusters": cfg.getint('DEFAULT', 'NumberOfClusters'),
-                  "data_file_path": cfg.get('DEFAULT', 'DatasetFilePath')}
-
-    return config
+        return {"n_clusters": cfg.getint(config_name, 'NumberOfClusters'),
+                "data_file_path": cfg.get(config_name, 'DatasetFilePath')}
+    except configparser.NoSectionError:
+        raise ValueError(f'\nConfig "{config_name}" not found in configuration file!\n'
+                         f' Available configurations are: {", ".join(map(str, cfg.sections()))}') from None
 
 
 class ConfigurationLoader:
