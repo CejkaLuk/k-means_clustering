@@ -8,10 +8,12 @@ from random import choice, sample
 
 class KMeans:
 
-    def __init__(self, n_clusters: int = 2, n_nodes: int = 1000, data_file_path: str = None):
-        self.n_clusters = n_clusters
+    def __init__(self, config, n_nodes: int = 1000):
+        self.n_clusters = config["n_clusters"]
         self.nodes = []
         self.clusters = []
+
+        data_file_path = config["data_file_path"]
 
         # Initialize nodes
         if data_file_path is None or not data_file_path:
@@ -23,7 +25,8 @@ class KMeans:
 
         # Matplotlib plot configuration
         plt.ion()
-        self.fig = plt.figure()
+        self.fig = plt.figure('K-Means clustering')
+        self.fig.suptitle(config["dataset_name"])
         self.ax = self.fig.add_subplot(1, 1, 1)
 
     def init_nodes_from_file(self, file_path: str):
