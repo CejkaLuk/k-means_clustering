@@ -13,7 +13,7 @@ class DataLoader:
 
     def load_data_from_file(self, file_path):
         """Loads coordinate data from a csv file."""
-        print(f'Loading data from {file_path}...')
+        print(f'Loading data started - from {file_path}...')
 
         if not os.path.exists(file_path):
             raise AssertionError(f'File "{file_path}" not found!')
@@ -28,4 +28,4 @@ class DataLoader:
             for row in csv_reader:
                 self.data.append((float(row[0]), float(row[1])))
 
-        print(f'Processed {len(self.data)} lines.')
+        print(f'Loading data complete - processed {len(self.data)} lines.')

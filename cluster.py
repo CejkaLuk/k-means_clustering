@@ -1,7 +1,7 @@
 class Cluster:
 
-    def __init__(self, centroid, id: int):
-        self.id = id
+    def __init__(self, centroid, cid: int):
+        self.id = cid
         self.centroid = centroid
         self.nodes = []
         self.diff_to_last_position = None

@@ -1,10 +1,9 @@
 from node import Node
 from cluster import Cluster
 from dataloader import DataLoader
-import random
 import time
 import matplotlib.pyplot as plt
-from random import choice
+from random import choice, sample
 
 
 class KMeans:
@@ -44,7 +43,7 @@ class KMeans:
 
     def get_random_nodes(self, n_nodes) -> list[Node]:
         """Returns n_nodes random nodes from existing nodes"""
-        return [node for node in random.sample(self.nodes, n_nodes)]
+        return [node for node in sample(self.nodes, n_nodes)]
 
     def init_clusters(self):
         """Initializes num_centroids random nodes as centroids of clusters"""
