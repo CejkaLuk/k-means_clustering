@@ -1,6 +1,5 @@
 import configparser
 import os
-from warnings import warn
 
 
 def load_config_from_file(file_path, config_name) -> dict:

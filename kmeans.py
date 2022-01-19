@@ -99,10 +99,6 @@ class KMeans:
             # Put a legend to the right of the current axis
             self.ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
-            # Plot new data
-            # self.fig.canvas.draw()
-            # self.fig.canvas.flush_events()
-
             total_centroid_movement = sum([cluster.centroid.diff_to_last_pos for cluster in self.clusters])
             print(f'Total movement of all centroids from last iteration [units]: {total_centroid_movement}')
 
