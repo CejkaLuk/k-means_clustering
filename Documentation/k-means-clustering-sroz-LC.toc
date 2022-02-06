@@ -1,7 +1,0 @@
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}Theory}{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Algorithm}{2}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Implementation}{2}{section.3}%
-\contentsline {paragraph}{Core code}{2}{section*.2}%
-\contentsline {section}{\numberline {4}Results}{3}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{5}{section.5}%
